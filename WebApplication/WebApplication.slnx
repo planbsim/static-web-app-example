@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="MyWebApplication.Db/MyWebApplication.Db.csproj" Id="8741fe99-e123-4436-ae1a-11fac9ca0521" />
   <Project Path="WebApplication.Api/WebApplication.Api.csproj" />
 </Solution>
