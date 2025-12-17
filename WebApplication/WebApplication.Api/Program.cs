@@ -1,3 +1,5 @@
+using Azure.Identity;
+using Microsoft.EntityFrameworkCore;
 using MyWebApplication.Db;
 
 var builder = Microsoft.AspNetCore.Builder.WebApplication.CreateBuilder(args);
@@ -9,8 +11,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Configuration.AddAzureKeyVault(
+    new Uri($"https://{builder.Configuration["KeyVaultName"]}.vault.azure.net/"),
+    new DefaultAzureCredential());
+
 // TODO SP: Diff AddAzureSql vs. SqlServer "Identity-Stuff"
-builder.Services.AddDbContext<WeatherDatabaseContext>();
+builder.Services.AddDbContext<WeatherDatabaseContext>(
+    x => x.UseSqlServer(builder.Configuration["ConnectionStrings:Database"]));
 
 var app = builder.Build();
 

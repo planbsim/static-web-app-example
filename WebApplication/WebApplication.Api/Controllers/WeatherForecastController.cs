@@ -15,7 +15,9 @@ namespace WebApplication.Api.Controllers
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly WeatherDatabaseContext weatherDatabaseContext;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, WeatherDatabaseContext weatherDatabaseContext)
+        public WeatherForecastController(
+            ILogger<WeatherForecastController> logger,
+            WeatherDatabaseContext weatherDatabaseContext)
         {
             _logger = logger;
             this.weatherDatabaseContext = weatherDatabaseContext;
