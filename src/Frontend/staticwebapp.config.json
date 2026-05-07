@@ -1,0 +1,7 @@
+{
+  "navigationFallback": {
+    "rewrite": "/200.html",
+    "exclude": ["/_app/*", "/favicon.ico", "/robots.txt", "/*.{css,js,map,json,png,jpg,jpeg,gif,svg,webp,ico,txt,woff,woff2,ttf,eot}"]
+  }
+}
+
